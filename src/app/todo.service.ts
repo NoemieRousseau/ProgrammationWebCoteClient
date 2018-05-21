@@ -27,7 +27,7 @@ export class TodoService {
     this.todoListSubject.next( {
       label: tdl.label,
       info: tdl.info,
-      items: tdl.items.map( I => items.indexOf(I) === -1 ? I : ({label: I.label, isDone, info}) )
+      items: tdl.items.map( I => items.indexOf(I) === -1 ? I : ({label: I.label, isDone, info: tdl.info}) )
     });
   }
 
