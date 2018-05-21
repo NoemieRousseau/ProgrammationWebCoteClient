@@ -1,0 +1,19 @@
+<div class="view">
+    <input class="toggle" type="checkbox" name="fait" [ngModel]="getIsDone()" (ngModelChange)="setDone($event)" />
+    <label class="texte" (dblclick)="isEditing = true"> {{getLabel()}}</label>
+    <button class="show" (click)="isShow = !isShow"> </button>
+    <button class="destroy" (click)="remove()"> </button>
+</div>
+<form (submit)="onSubmit(newTextInput.value, newInfoInput.value)">
+    <input #newTextInput name="newTextInput" class="edit" [ngModel]="getLabel()" />
+</form>
+<div class="info" [hidden]="isShow">
+    <div class="view">
+        <label class="texte" name="texteInfo" (dblclick)="isEditing = true"> {{getInfo()}}</label>
+        <button class="modifier" (click)="isEditing = true"> </button>
+    </div>
+    <form (submit)="onSubmit(newTextInput.value, newInfoInput.value)" class="formEdit">
+        <input #newInfoInput name="newInfoInput" class="edit" [ngModel]="getInfo()" />
+    </form>
+    <button class="enregistrer" (click)="onSubmit(newTextInput.value, newInfoInput.value)"> </button>
+</div>
